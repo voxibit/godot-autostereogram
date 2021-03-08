@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://autostereogram.shader" type="Shader" id=1]
+[ext_resource path="res://textures/desert_sand_bigx_d.jpg" type="Texture" id=2]
+[ext_resource path="res://screenshot.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/max_shift = 0.02
+shader_param/horizontal_repeats = 12
+shader_param/show_depth = false
+shader_param/show_dots = true
+shader_param/IMAGE = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 2, 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+params_cull_mode = 1
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 5, 5, 5 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 30, 0.2, 30 )
+
+[sub_resource type="SphereMesh" id=6]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.207843, 0.733333, 0.560784, 1 )
+
+[sub_resource type="SphereMesh" id=8]
+radius = 0.7
+height = 1.4
+
+[sub_resource type="CubeMesh" id=9]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28525, 2.12252 )
+near = 0.1
+far = 5.0
+
+[node name="Autostereogram" type="MeshInstance" parent="Camera"]
+transform = Transform( 0.969651, -0.199492, -0.141353, -1.13141e-08, 0.578143, -0.815935, 0.244495, 0.791172, 0.560596, 1.90735e-06, -0.430683, -4.79044 )
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StageBox" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38209, -0.344823 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 0.961262, 0.0216119, 0.274789, 0.0223455, 0.98753, -0.155837, -0.27473, 0.155941, 0.948791, 1.26695, -0.794567, 3.05795 )
+visible = false
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Hill" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29517, -9.63642, -3.84899 )
+visible = false
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="Sun" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22278, 2.72569, -3.06749 )
+visible = false
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.644918, -0.242563, 0.724737, 0.490237, 0.858791, -0.148815, -0.586301, 0.451267, 0.672763, 0, 1.27506, -0.710948 )
+mesh = SubResource( 9 )
+material/0 = null

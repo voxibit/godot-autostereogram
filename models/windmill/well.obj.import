@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/well.obj-6a1cbe657292010025b10ba9c62cf4a4.mesh"
+
+[deps]
+
+files=[ "res://.import/well.obj-6a1cbe657292010025b10ba9c62cf4a4.mesh" ]
+
+source_file="res://models/windmill/well.obj"
+dest_files=[ "res://.import/well.obj-6a1cbe657292010025b10ba9c62cf4a4.mesh", "res://.import/well.obj-6a1cbe657292010025b10ba9c62cf4a4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
